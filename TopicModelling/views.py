@@ -3,10 +3,12 @@ from django.http import HttpResponse
 from .utils.lda_model import get_topics
 from .utils.lsa import modelTopics
 import json
+from text_processor.utils import processor
 
 @api_view(['POST',])
 def get_lda_topics(request):
     data = request.data
+    processor.text_preprocessor(data['para'])
     t = get_topics(data['para'],num_topics=3)
     print(t)
     t1 = [i[1] for i in t]
@@ -26,6 +28,7 @@ def get_lda_topics(request):
 @api_view(['POST',])
 def get_lsa_topics(request):
     data = request.data
+    processor.text_preprocessor(data['para'])
     topics = modelTopics(data['para'])
     jsonString = json.dumps(topics)
 
