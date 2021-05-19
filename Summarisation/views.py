@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .utils.text_rank import generate_summary
 from .summarizer.model_processors import Summarizer
+from text_processor.utils import processor
 
 # model = Summarizer()
 
@@ -20,6 +21,7 @@ def get_summary_text_rank(request):
     """    
     # print(request.data)
     data = request.data
+    processor.text_preprocessor(data['para'])
     summary = generate_summary(data['para'])
     return HttpResponse(summary)
     # return Response(status=200,data=request)
