@@ -21,6 +21,7 @@ def get_summary_text_rank(request):
     # print(request.data)
     data = request.data
     summary = generate_summary(data['para'])
+    print(summary)
     return HttpResponse(summary)
     # return Response(status=200,data=request)
 

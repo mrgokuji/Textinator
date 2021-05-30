@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Summarisation',
     'Classification',
-    'TopicModelling'
+    'TopicModelling',
+    'UI'
 ]
 
 MIDDLEWARE = [

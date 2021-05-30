@@ -23,4 +23,5 @@ urlpatterns = [
     path('classify/', include('Classification.urls')),
     path('topic/',include('TopicModelling.urls')),
     path('title/',include('Titling.urls')),
+    path('',include('UI.urls'))
    ]
